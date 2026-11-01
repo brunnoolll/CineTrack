@@ -1,0 +1,39 @@
+# Gradle e Kotlin: caches e artefatos gerados
+.gradle/
+.kotlin/
+build/
+
+# Android Studio / IntelliJ IDEA: configuracoes locais do ambiente
+.idea/
+*.iml
+/captures/
+.externalNativeBuild/
+.cxx/
+
+# Configuracao local do SDK e token da TMDB
+local.properties
+# Manter versionado o exemplo sem credenciais:
+!local.properties.example
+
+# Credenciais, chaves de assinatura e variaveis de ambiente
+.env
+.env.*
+!.env.example
+key.properties
+keystore.properties
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+
+# Binarios gerados e diagnosticos locais
+*.apk
+*.aab
+*.hprof
+*.log
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini

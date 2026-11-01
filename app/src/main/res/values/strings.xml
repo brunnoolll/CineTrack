@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">CineTrack</string>
+    <string name="refresh_movies">Descobrir outros filmes</string>
+    <string name="retry">Tentar novamente</string>
+    <string name="no_movies">Nenhum filme encontrado.</string>
+    <string name="release_unknown">Ano não informado</string>
+    <string name="rating">Avaliação</string>
+    <string name="no_rating">Sem avaliações</string>
+    <string name="error_network">Sem conexão. Verifique sua internet e tente novamente.</string>
+    <string name="error_rate_limited">Muitas consultas no momento. Tente novamente em instantes.</string>
+    <string name="error_not_found">O conteúdo solicitado não foi encontrado.</string>
+    <string name="error_unknown">Não foi possível carregar os filmes. Tente novamente.</string>
+    <string name="refresh_details">Atualizar detalhes</string>
+    <string name="movie_details">Detalhes do filme</string>
+    <string name="go_back">Voltar</string>
+    <string name="runtime_minutes">%1$d min</string>
+    <string name="release_date">Lançamento: %1$s</string>
+    <string name="genres_unknown">Gêneros não informados</string>
+    <string name="synopsis">Sinopse</string>
+    <string name="synopsis_unavailable">Sinopse não disponível.</string>
+</resources>

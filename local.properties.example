@@ -1,0 +1,7 @@
+# Exemplo de configuração local do CineTrack.
+# Copie esta propriedade para local.properties (na raiz do projeto).
+# Use o API Read Access Token da TMDB, sem aspas ou o prefixo Bearer.
+TMDB_READ_ACCESS_TOKEN=SEU_TOKEN_AQUI
+
+# O Android Studio configura sdk.dir no seu local.properties, quando necessario.
+# Nao compartilhe o arquivo local.properties com o token real.
