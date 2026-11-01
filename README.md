@@ -4,6 +4,14 @@ Aplicativo Android desenvolvido em **Kotlin**, com **Jetpack Compose**, **MVI**,
 
 O CineTrack consome a API do [The Movie Database (TMDB)](https://www.themoviedb.org/) para exibir um catálogo de filmes e consultar os detalhes de cada título.
 
+## Contexto do problema e solução proposta
+
+O desafio consiste em construir uma aplicação Android que consuma uma API pública de filmes e ofereça uma experiência simples de consulta ao catálogo e aos detalhes de cada título. Além de apresentar os dados, a solução precisa lidar com carregamento, falhas de comunicação e navegação entre telas.
+
+A proposta do **CineTrack** é atender a esse fluxo com Android nativo, priorizando uma interface reativa, responsabilidades bem delimitadas e testes unitários. Para manter a implementação proporcional ao desafio, o projeto utiliza **um único módulo Gradle**, com separação lógica entre `presentation`, `domain` e `data`, sem modularização prematura.
+
+A listagem busca uma página aleatória entre 1 e 20 para variar o catálogo a cada atualização, preservando a ordem de popularidade retornada pela TMDB dentro da página selecionada. Ao abrir um filme, os detalhes são consultados por ID em uma chamada específica à API, em vez de depender apenas das informações resumidas do catálogo.
+
 ## Funcionalidades
 
 - **Catálogo:** consulta `GET /3/discover/movie`, selecionando aleatoriamente uma página entre **1 e 20** a cada carregamento ou atualização. Os filmes seguem a ordem retornada pela API, sem embaralhamento adicional.
@@ -13,8 +21,6 @@ O CineTrack consome a API do [The Movie Database (TMDB)](https://www.themoviedb.
 - **Estados de interface:** carregamento, sucesso, erro e tentativa novamente (*Retry*).
 - **Falhas durante atualização:** preservação dos dados já exibidos e apresentação de mensagem de erro.
 - **Navegação:** catálogo → detalhes → voltar à lista.
-
-**Fora do escopo:** favoritos, Room, cache local, persistência de filmes, suporte offline e paginação contínua.
 
 ## Requisitos
 
@@ -91,6 +97,24 @@ Execute todos os testes unitários no Windows (PowerShell):
 - **Coroutines:** oferecem execução assíncrona com cancelamento estruturado.
 - **Coil:** carrega imagens remotas e permite placeholders.
 - **Escopo intencionalmente reduzido:** evita dependências e funcionalidades sem benefício para os requisitos do desafio.
+
+## Limitações e o que faria com mais tempo
+
+O recorte implementado contempla os fluxos de **catálogo e detalhes**, incluindo carregamento inicial, atualização, tentativa novamente e tratamento de falhas. Para priorizar esse objetivo, algumas possibilidades ficaram intencionalmente fora da entrega:
+
+- **Paginação contínua:** o catálogo consulta uma página por carregamento; não há carregamento incremental ao rolar a lista.
+- **Cache e funcionamento offline:** não há persistência dos filmes em banco local; as consultas dependem de conexão com a TMDB.
+- **Favoritos:** não foram implementados, pois não fazem parte do escopo adotado.
+- **Testes instrumentados:** a validação automatizada está concentrada em testes unitários, conforme o requisito do desafio; a interface também foi validada manualmente.
+
+Com mais tempo, priorizaria as seguintes evoluções:
+
+1. **Paginação** para ampliar a navegação pelo catálogo e evitar restringir a experiência a uma única página por atualização.
+2. **Cache local com Room e estratégia offline-first**, definindo política de atualização e apresentação de dados armazenados em caso de indisponibilidade da rede.
+3. **Testes de interface e navegação com Compose**, complementando os cenários cobertos pelos testes unitários.
+4. **Estratégia de proteção de credenciais para produção**, evitando depender de um token recuperável do APK, caso a aplicação evolua além do contexto demonstrativo.
+
+Essas evoluções seriam avaliadas de acordo com requisitos de produto e benefícios concretos, evitando complexidade antecipada.
 
 ## Créditos
 
